@@ -20,6 +20,7 @@ const AddNote = () => {
     if (!res.ok) {
       throw new Error("Failed to create note");
     }
+    router.refresh();
   };
 
   const handleChange = (e) => {
