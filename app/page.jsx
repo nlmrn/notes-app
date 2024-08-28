@@ -1,25 +1,35 @@
-import NoteCard from "./(components)/NoteCard";
 import AddNote from "./(components)/AddNote";
+import NotesList from "./(components)/NotesList";
 
-async function getNotes() {
-  try {
-    const res = await fetch("http://localhost:3000/api/Notes", {
-      cache: "no-store",
-    });
-  } catch (error) {
-    console.log("Error loading notes");
+export default async function page() {
+  async function getNotes() {
+    try {
+      const res = await fetch("http://localhost:3000/api/Notes", {
+        cache: "no-store",
+      });
+
+      return res.json();
+    } catch (error) {
+      console.log("Error loading notes");
+    }
   }
-}
 
-const { notes } = await getNotes();
+  const data = await getNotes();
 
-export default function page() {
+  if (!data?.notes) {
+    return (
+      <div>
+        <AddNote />
+      </div>
+    );
+  }
+
+  const notes = data.notes;
+
   return (
     <div className="px-10 py-5">
       <AddNote />
-      <div className="md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <NoteCard />
-      </div>
+      <NotesList notes={notes} />
     </div>
   );
 }

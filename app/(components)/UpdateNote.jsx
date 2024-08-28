@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import SaveNote from "./SaveNote";
 
-const AddNote = () => {
+const UpdateNote = () => {
   const router = useRouter();
   const textareaRef = useRef(null);
 
@@ -99,4 +99,4 @@ const AddNote = () => {
   );
 };
 
-export default AddNote;
+export default UpdateNote;
