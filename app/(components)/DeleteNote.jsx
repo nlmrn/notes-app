@@ -7,9 +7,12 @@ import { useRouter } from "next/navigation";
 export default function DeleteNote({ id, onDelete }) {
   const router = useRouter();
   async function deleteNote() {
-    const res = await fetch(`/api/Notes/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://notes-app-three-lime.vercel.app/api/Notes/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (res.ok) {
       router.refresh();
     }

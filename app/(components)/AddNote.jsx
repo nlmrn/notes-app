@@ -9,11 +9,14 @@ const AddNote = () => {
   const textareaRef = useRef(null);
 
   const handleSubmit = async (e) => {
-    const res = await fetch("/api/Notes", {
-      method: "POST",
-      body: JSON.stringify({ formData }),
-      "Content-Type": "application/json",
-    });
+    const res = await fetch(
+      "https://notes-app-three-lime.vercel.app/api/Notes",
+      {
+        method: "POST",
+        body: JSON.stringify({ formData }),
+        "Content-Type": "application/json",
+      }
+    );
     if (!res.ok) {
       throw new Error("Failed to create note");
     }
