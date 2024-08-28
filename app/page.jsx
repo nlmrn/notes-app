@@ -4,9 +4,12 @@ import NotesList from "./(components)/NotesList";
 export default async function page() {
   async function getNotes() {
     try {
-      const res = await fetch("/api/Notes", {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        "https://notes-app-three-lime.vercel.app/api/Notes",
+        {
+          cache: "no-store",
+        }
+      );
 
       return res.json();
     } catch (error) {

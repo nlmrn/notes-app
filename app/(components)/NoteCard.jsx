@@ -10,9 +10,7 @@ export default function NoteCard({ note }) {
       </div>
       <h4>{note.title}</h4>
       <hr className="h-px border-0 bg-page mb-2" />
-      <textarea readOnly rows="5">
-        {note.content}
-      </textarea>
+      <textarea readOnly rows="5" value={note.content}></textarea>
     </div>
   );
 }
