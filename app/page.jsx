@@ -4,7 +4,7 @@ import NotesList from "./(components)/NotesList";
 export default async function page() {
   async function getNotes() {
     try {
-      const res = await fetch("http://localhost:3000/api/Notes", {
+      const res = await fetch("/api/Notes", {
         cache: "no-store",
       });
 

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function DeleteNote({ id, onDelete }) {
   const router = useRouter();
   async function deleteNote() {
-    const res = await fetch(`http://localhost:3000/api/Notes/${id}`, {
+    const res = await fetch(`/api/Notes/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
