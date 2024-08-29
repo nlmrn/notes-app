@@ -83,6 +83,7 @@ const AddNote = () => {
           onChange={handleChange}
           onKeyDown={moveToContent}
           value={formData.title}
+          autoComplete="off"
         />
         <hr className="h-px border-0 bg-page my-2" />
         <div className="relative overflow-hidden max-h-80">
